@@ -1,0 +1,10 @@
+[Unit]
+Description=Google Endpoint Verification service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh /opt/google/endpoint-verification/bin/oneshot.sh
+
+[Install]
+WantedBy=graphical.target
+
