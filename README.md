@@ -9,6 +9,10 @@ This project adapts the Debian/Ubuntu-only 'Endpoint Verification' native helper
 
 The install script will ask you whether you wish to install the Native Messaging helper application for Google Chrome and/or Chromium (they use different paths). It seems to work fine in Chromium.
 
-It should be reasonably easy to adapt this script's approach to other non-Debian Linux operating systems.
+# Future work
 
-The script could be adapted for 32-bit systems: There is a corresponding 32-bit .deb. Does anyone need this?
+- It should be reasonably easy to adapt this script's approach to other non-Debian Linux operating systems. It's been tried on Arch Linux, and nowhere else yet.
+
+- The script could be adapted for 32-bit systems: There is a corresponding 32-bit .deb. Does anyone need this?
+
+- See 'Issues' tab
