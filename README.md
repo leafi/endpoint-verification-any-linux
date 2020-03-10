@@ -4,10 +4,12 @@ This project adapts the Debian/Ubuntu-only 'Endpoint Verification' native helper
 # Using it
 1. Clone or download this repo
 2. `cd` to the root of this repo
-3. Run ./download-unpack-latest.sh
-4. If this succeeds, run `sudo ./install-systemd.sh` on e.g. Arch Linux and other systemd-using distros, or `sudo ./install-rc.d-systemctl.sh` to use Google's built-in install script on distributions that have `update-rc.d` but use `systemctl .. start` to start services.
+3. Run `./download-unpack-latest.sh`
+4. If this succeeds:
+- run `sudo ./install-systemd.sh` on e.g. Arch Linux and other systemd-using distros
+- or `sudo ./install-rc.d-systemctl.sh` to use Google's built-in install script on distributions that have 'update-rc.d' but use 'systemctl .. start' to start services.
 
-The install script will ask you whether you wish to install the Native Messaging helper application for Google Chrome and/or Chromium (they use different paths). It seems to work fine in Chromium.
+The install script will **ask** you whether you wish to install the Native Messaging helper application for **Google Chrome** and/or **Chromium** (they use different paths). It seems to work fine in Chromium.
 
 # Future work
 
