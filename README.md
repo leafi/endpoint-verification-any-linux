@@ -1,5 +1,5 @@
-# endpoint-verification-any-linux
-This project adapts the Debian/Ubuntu-only 'Endpoint Verification' native helper for any Linux distro by manually downloading the latest .deb, patching device_state.sh to hardcode OS_VERSION to `18.04` (the script can only detect versions for Debian or Ubuntu), and installing the system service and Google Chrome/Chromium native message helper application.
+# endpoint-verification-any-linux (AMD64)
+This project adapts the Debian/Ubuntu-only 'Endpoint Verification' native helper for any AMD64 Linux distro by manually downloading the latest .deb, patching device_state.sh to hardcode OS_VERSION to `18.04` (the script can only detect versions for Debian or Ubuntu), and installing the system service and Google Chrome/Chromium native message helper application.
 
 # Using it
 1. Clone or download this repo
@@ -10,3 +10,5 @@ This project adapts the Debian/Ubuntu-only 'Endpoint Verification' native helper
 The install script will ask you whether you wish to install the Native Messaging helper application for Google Chrome and/or Chromium (they use different paths). It seems to work fine in Chromium.
 
 It should be reasonably easy to adapt this script's approach to other non-Debian Linux operating systems.
+
+The script could be adapted for 32-bit systems: There is a corresponding 32-bit .deb. Does anyone need this?
