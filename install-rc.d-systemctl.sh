@@ -6,7 +6,10 @@ test -d unpacked
 
 ./inner-scripts/install-common.sh
 
-EXISTING=$(ls /etc/init.d/endpoint-verification.sh >/dev/null)
+# postinst script checks for non-empty $2 var, and sees this as reinstall
+EXISTING=""
+# double negation
+test ! -f /etc/init.d/endpoint-verification.sh || EXISTING="existing"
 
 echo "Using Google's method for installing the service"
 echo '- Installing /etc/init.d/endpoint-verification.sh'
