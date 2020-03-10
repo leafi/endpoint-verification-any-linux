@@ -44,8 +44,10 @@ ls etc/opt/chrome/native-messaging-hosts/com.google.secure_connect.native_helper
 ls opt/google/endpoint-verification/bin/device_state.sh >/dev/null
 ls opt/google/endpoint-verification/bin/SecureConnectHelper >/dev/null
 
-echo 'Patch device_state.sh for OS_VERSION support (extract from kernel)'
-sed -i.original -e 's/set -u/set -u ; OS_VERSION="$(\/usr\/bin\/uname -v | sed -e s\/.*SMP\\ PREEMPT\\ \/\/g)"/g' opt/google/endpoint-verification/bin/device_state.sh
+# echo 'Patch device_state.sh for OS_VERSION support (extract from kernel uname)'
+# sed -i.original -e 's/set -u/set -u ; OS_VERSION="$(\/usr\/bin\/uname -v | sed -e s\/.*SMP\\ PREEMPT\\ \/\/g)"/g' opt/google/endpoint-verification/bin/device_state.sh
+echo 'Patch device_state.sh for OS_VERSION support (hardcode 18.04)'
+sed -i.original -e 's/set -u/set -u ; OS_VERSION="18.04"/g' opt/google/endpoint-verification/bin/device_state.sh
 
 popd
 
