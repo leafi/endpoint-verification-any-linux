@@ -13,7 +13,7 @@ curl https://packages.cloud.google.com/apt/dists/endpoint-verification-unstable/
 # show version to user
 grep Version unpacked/Packages
 # grab .deb url
-DEB_URL="https://packages.cloud.google.com/apt/$(grep Filename unpacked/Packages | sed -e 's/Filename: //g')"
+DEB_URL="https://packages.cloud.google.com/apt/$(grep Filename unpacked/Packages | sed -e 's/Filename: //g' | grep 'endpoint-verification_')"
 echo "Downloading ${DEB_URL}" >>unpacked/download-log.txt
 curl -o unpacked/endpoint-verification.deb "${DEB_URL}" 2>>unpacked/download-log.txt || echo 'failed - check unpacked/download-log.txt'
 
@@ -32,15 +32,18 @@ echo 'Unpacking data.tar.gz'
 cd ../data
 tar -zxf ../endpoint-verification/data.tar.gz
 
-echo 'Checking data/etc/init.d/endpoint-verification.sh against known sum'
-cksum etc/init.d/endpoint-verification.sh
-KNOWN_SUM='2640281529 920 etc/init.d/endpoint-verification.sh'
-cksum etc/init.d/endpoint-verification.sh | grep "$KNOWN_SUM" >/dev/null || echo "ERROR: cksum endpoint-verification.sh does NOT match '$KNOWN_SUM';\nERROR: Cannot guarantee install-systemd.sh will do the right thing!"
+echo 'Checking data/etc/init.d/endpoint-verification against known sum'
+cksum etc/init.d/endpoint-verification
+KNOWN_SUM='2640281529 920 etc/init.d/endpoint-verification'
+cksum etc/init.d/endpoint-verification | grep "$KNOWN_SUM" >/dev/null || echo "ERROR: cksum endpoint-verification does NOT match '$KNOWN_SUM';\nERROR: Cannot guarantee install-systemd.sh will do the right thing!"
 # error out if no match
-cksum etc/init.d/endpoint-verification.sh | grep "$KNOWN_SUM" >/dev/null
+cksum etc/init.d/endpoint-verification | grep "$KNOWN_SUM" >/dev/null
 
 echo 'Check known files'
+ls etc/opt/chrome/native-messaging-hosts/com.google.endpoint_verification.api_helper.json >/dev/null
 ls etc/opt/chrome/native-messaging-hosts/com.google.secure_connect.native_helper.json >/dev/null
+ls usr/lib/mozilla/native-messaging-hosts/com.google.endpoint_verification.api_helper.json >/dev/null
+ls opt/google/endpoint-verification/bin/apihelper >/dev/null
 ls opt/google/endpoint-verification/bin/device_state.sh >/dev/null
 ls opt/google/endpoint-verification/bin/SecureConnectHelper >/dev/null
 
