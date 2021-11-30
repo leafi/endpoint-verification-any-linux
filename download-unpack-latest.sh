@@ -41,11 +41,9 @@ cksum etc/init.d/endpoint-verification | grep "$KNOWN_SUM" >/dev/null
 
 echo 'Check known files'
 ls etc/opt/chrome/native-messaging-hosts/com.google.endpoint_verification.api_helper.json >/dev/null
-ls etc/opt/chrome/native-messaging-hosts/com.google.secure_connect.native_helper.json >/dev/null
 ls usr/lib/mozilla/native-messaging-hosts/com.google.endpoint_verification.api_helper.json >/dev/null
 ls opt/google/endpoint-verification/bin/apihelper >/dev/null
 ls opt/google/endpoint-verification/bin/device_state.sh >/dev/null
-ls opt/google/endpoint-verification/bin/SecureConnectHelper >/dev/null
 
 # echo 'Patch device_state.sh for OS_VERSION support (extract from kernel uname)'
 # sed -i.original -e 's/set -u/set -u ; OS_VERSION="$(\/usr\/bin\/uname -v | sed -e s\/.*SMP\\ PREEMPT\\ \/\/g)"/g' opt/google/endpoint-verification/bin/device_state.sh
